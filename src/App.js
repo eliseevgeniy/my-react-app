@@ -1,41 +1,27 @@
-import React, { useRef } from 'react';
+import React from "react";
+// Импортируем библиотеку React
 
-import Button from './components/Button';
+import Counter from "./components/Counter";
+// Компонент Counter — счётчик для увеличения/уменьшения числа
 
-import Input from './components/Input';
+import Timer from "./components/Timer";
+// Компонент Timer — таймер (отсчитывает время в мс)
 
-import './App.css';
+const App = () => {
+  // Функциональный компонент App возвращает JSX-разметку
 
-
-function App() {
-
-    const inputRef = useRef(null);
-
-
-    const handleClear = () => {
-
-        if (inputRef.current) {
-
-            inputRef.current.value = '';
-
-        }
-
-    };
-
-
-    return (
-
-        <div className="app-container">
-
-            <Input ref={inputRef} placeholder="Введите текст..." />
-
-            <Button onClick={handleClear} />
-
-        </div>
-
-    );
-
-}
-
+  return (
+    <div style={{ textAlign: "center", margin: "20px" }}>
+      {/* Корневой контейнер: текст по центру, отступы 20px */}
+      <h1>React State App</h1>
+      {/* Заголовок приложения */}
+      <Counter />
+      {/* Вставляем компонент Counter */}
+      <Timer />
+      {/* Вставляем компонент Timer */}
+    </div>
+  );
+};
 
 export default App;
+// Экспортируем App по умолчанию
